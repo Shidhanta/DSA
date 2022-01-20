@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/linked-list-cycle/
+
 /**
  * Definition for singly-linked list.
  * class ListNode {
@@ -9,17 +11,16 @@
  *     }
  * }
  */
-//Floyd Cycle detection algorithm- 
-// If there is a cycle fast pointer and slow pointer will coincide 
-public class linked_list_cycle {
+public class Solution {
     public boolean hasCycle(ListNode head) {
         ListNode fst = head;
         ListNode slw = head;
+      //if while loop breaks, no loop , if slw and fst meet then there is def a cycle
         while(slw!= null && fst!=null && fst.next != null)
         {
             
-                slw=slw.next; //slow pointer moving by one
-                fst=fst.next.next; // fast pointer moving two list elements at a single go 
+                slw=slw.next;
+                fst=fst.next.next;
                 if(fst==slw)
                 {
                     return true;
@@ -28,12 +29,4 @@ public class linked_list_cycle {
         
         return false;
     }
-    class ListNode {
-             int val;
-             ListNode next;
-             ListNode(int x) {
-                 val = x;
-                 next = null;
-             }
-        }
 }
